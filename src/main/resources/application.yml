@@ -35,3 +35,4 @@ jxyz:
   created_user: 王小贱
   minio_data_base_path: /opt/minio/data
   upzip_base_path: /home/unzip
+  default_year: 2020
