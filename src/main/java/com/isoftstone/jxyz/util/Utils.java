@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +19,19 @@ import net.lingala.zip4j.exception.ZipException;
 public class Utils {
 	public static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final String separator = File.separator;
+
+	public static String translateDateStr(Object obj) {
+		if (obj == null) {
+			return null;
+		}
+
+		try {
+			return df.format(df.parse(obj.toString()));
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
 
 	public static void unzip(File zipFile, String dest) throws ZipException {
 		ZipFile zFile = new ZipFile(zipFile); // 首先创建ZipFile指向磁盘上的.zip文件
@@ -113,35 +127,36 @@ public class Utils {
 			fileList.add(file);
 		}
 	}
-	
+
 	/**
 	 * 删除文件或文件夹
+	 * 
 	 * @param directory
 	 */
-	public static void delAllFile(File directory){
-	    if (!directory.isDirectory()){
-	        directory.delete();
-	    } else{
-	        File [] files = directory.listFiles();
+	public static void delAllFile(File directory) {
+		if (!directory.isDirectory()) {
+			directory.delete();
+		} else {
+			File[] files = directory.listFiles();
 
-	        // 空文件夹
-	        if (files.length == 0){
-	            directory.delete();
-	            return;
-	        }
+			// 空文件夹
+			if (files.length == 0) {
+				directory.delete();
+				return;
+			}
 
-	        // 删除子文件夹和子文件
-	        for (File file : files){
-	            if (file.isDirectory()){
-	                delAllFile(file);
-	            } else {
-	                file.delete();
-	            }
-	        }
+			// 删除子文件夹和子文件
+			for (File file : files) {
+				if (file.isDirectory()) {
+					delAllFile(file);
+				} else {
+					file.delete();
+				}
+			}
 
-	        // 删除文件夹本身
-	        directory.delete();
-	    }
+			// 删除文件夹本身
+			directory.delete();
+		}
 	}
-	
+
 }
