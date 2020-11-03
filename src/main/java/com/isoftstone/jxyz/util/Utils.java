@@ -17,8 +17,11 @@ import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
 public class Utils {
-	public static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static final String separator = File.separator;
+
+	public static DateFormat df() {
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	}
 
 	public static String translateDateStr(Object obj) {
 		if (obj == null) {
@@ -26,7 +29,7 @@ public class Utils {
 		}
 
 		try {
-			return df.format(df.parse(obj.toString()));
+			return df().format(df().parse(obj.toString()));
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
@@ -111,7 +114,7 @@ public class Utils {
 			return;
 		}
 		try {
-			sqlItemList.add(DB.notNull(name + ",", df.format(df.parse(obj.toString()))));
+			sqlItemList.add(DB.notNull(name + ",", df().format(df().parse(obj.toString()))));
 		} catch (Exception e) {
 			// TODO: handle exception
 			// 异常直接丢弃，不存入数据库
@@ -120,8 +123,11 @@ public class Utils {
 
 	public static void traverFile(File file, List<File> fileList) {
 		if (file.isDirectory()) {
-			for (File tempFile : file.listFiles()) {
-				traverFile(tempFile, fileList);
+			File[] files = file.listFiles();
+			if(files !=null) {
+				for (File tempFile : files) {
+					traverFile(tempFile, fileList);
+				}
 			}
 		} else {
 			fileList.add(file);
@@ -140,7 +146,7 @@ public class Utils {
 			File[] files = directory.listFiles();
 
 			// 空文件夹
-			if (files.length == 0) {
+			if (files == null || files.length == 0) {
 				directory.delete();
 				return;
 			}

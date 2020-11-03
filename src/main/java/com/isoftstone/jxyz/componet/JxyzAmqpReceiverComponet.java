@@ -63,8 +63,8 @@ public class JxyzAmqpReceiverComponet {
 				Date created_time = new Date();
 				ctx.execute(
 						"INSERT INTO esb_log(id,host,event_time,bucket,object,amqp_message,created_user,created_time)VALUES(?,?,?,?,?,?,?,?)",
-						id, host, Utils.df.format(event_time), bucket, object, amqp_message, created_user,
-						Utils.df.format(created_time));
+						id, host, Utils.df().format(event_time), bucket, object, amqp_message, created_user,
+						Utils.df().format(created_time));
 				process(bucket, object, id);
 			}
 		}
@@ -116,10 +116,10 @@ public class JxyzAmqpReceiverComponet {
 		DbContext ctx = DbContext.getGlobalDbContext();
 		try {
 			Date unzip_start_time = new Date();
-			ctx.execute("update esb_log set unzip_start_time = ? where id = ? ", Utils.df.format(unzip_start_time), id);
+			ctx.execute("update esb_log set unzip_start_time = ? where id = ? ", Utils.df().format(unzip_start_time), id);
 			Utils.unzip(sourceFile, unzipObjectPath);
 			Date unzip_end_time = new Date();
-			ctx.execute("update esb_log set unzip_end_time = ? where id = ? ", Utils.df.format(unzip_end_time), id);
+			ctx.execute("update esb_log set unzip_end_time = ? where id = ? ", Utils.df().format(unzip_end_time), id);
 		} catch (ZipException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

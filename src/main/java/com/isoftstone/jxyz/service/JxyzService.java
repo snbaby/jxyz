@@ -52,7 +52,7 @@ public class JxyzService {
 			Utils.consStr(sqlItemList, jsb, "modify_user_name");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {
@@ -93,7 +93,7 @@ public class JxyzService {
 			Utils.consDate(sqlItemList, jsb, "gmt_modified");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {
@@ -130,7 +130,7 @@ public class JxyzService {
 			Utils.consStr(sqlItemList, jsb, "modify_user_name");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {
@@ -274,7 +274,7 @@ public class JxyzService {
 		Utils.consStr(sqlItemList, jsb, "modify_user_name");
 		Utils.consStr(sqlItemList, jsb, "business_product_code");
 
-		sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+		sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 		sqlItemList.add(DB.notNull("created_by", "王小贱"));
 		if (sqlItemList.size() > 1) {
 			if (validate(jsb) && sqlItemList.size() > 0) {
@@ -462,7 +462,7 @@ public class JxyzService {
 		Utils.consStr(sqlItemList, jsb, "is_special_marketing");
 		Utils.consStr(sqlItemList, jsb, "manual_fee_type");
 
-		sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+		sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 		sqlItemList.add(DB.notNull("created_by", "王小贱"));
 		if (sqlItemList.size() > 1) {
 			if (validate(jsb) && sqlItemList.size() > 0) {
@@ -519,7 +519,7 @@ public class JxyzService {
 			Utils.consStr(sqlItemList, jsb, "cargo_type_name_en");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {
@@ -559,7 +559,7 @@ public class JxyzService {
 			Utils.consStr(sqlItemList, jsb, "modify_user_name");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {
@@ -600,7 +600,7 @@ public class JxyzService {
 			Utils.consStr(sqlItemList, jsb, "modify_user_name");
 			Utils.consStr(sqlItemList, jsb, "create_user_name");
 
-			sqlItemList.add(DB.notNull("created_date,", Utils.df.format(new Date())));
+			sqlItemList.add(DB.notNull("created_date,", Utils.df().format(new Date())));
 			sqlItemList.add(DB.notNull("created_by", "王小贱"));
 			if (sqlItemList.size() > 1) {
 				if (validate(jsb) && sqlItemList.size() > 0) {

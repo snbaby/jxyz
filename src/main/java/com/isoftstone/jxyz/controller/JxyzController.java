@@ -45,7 +45,7 @@ public class JxyzController {
 				DB.notNull("op_org_name,", jsb.getString("oporgname")),
 				DB.notNull("op_erator_no,", jsb.getString("operatorno")),
 				DB.notNull("op_erator_name,", jsb.getString("operatorname")),
-				DB.notNull("created_date,", Utils.df.format(new Date())), DB.notNull("created_by,", "王小贱"), ")",
+				DB.notNull("created_date,", Utils.df().format(new Date())), DB.notNull("created_by,", "王小贱"), ")",
 				DB.valuesQuestions());
 
 		log.info("轨迹数据：结束导入数据");
