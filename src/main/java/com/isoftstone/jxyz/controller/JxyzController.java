@@ -1,6 +1,5 @@
 package com.isoftstone.jxyz.controller;
 
-import java.sql.SQLException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
