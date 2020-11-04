@@ -105,7 +105,7 @@ public class JxyzAmqpReceiverComponet {
 			year = defaultYear;
 			log.error(">>解析年份失败，使用默认年份：{}", year);
 		}
-//		parse(unzipObjectPath, id, year);
+		parse(unzipObjectPath, id, year);
 		log.info(">>结束解析文件夹：{}", unzipObjectPath);
 		log.info(">>开始清除文件夹：{}", unzipObjectPath);
 		Utils.delAllFile(ObjectDir);
