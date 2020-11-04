@@ -4,7 +4,7 @@ logging:
   file:
     path: log
 server:
-  port: 18414
+  port: 18413
 spring:
   jackson:
     generator:
