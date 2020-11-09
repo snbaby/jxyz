@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -40,6 +41,7 @@ public class JxyzAmqpReceiverComponet {
 	@Autowired
 	public JxyzService jxyzService;
 
+	@RabbitListener(queues = "jxyz-esb-queue")
 	public void receiveJxyzEsbQueue(String amqp_message) throws SQLException {
 		DbContext ctx = DbContext.getGlobalDbContext();
 		JSONObject s3MessageJsb = JSONObject.parseObject(amqp_message);
