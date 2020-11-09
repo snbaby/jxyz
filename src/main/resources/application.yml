@@ -11,11 +11,16 @@ spring:
       write-numbers-as-strings: true
   application:
     name: jxyz
+  rabbitmq:
+    host: 127.0.0.1
+    port: 18416
+    username: jxyz_ado
+    password: HdIdh2_J4SMId2
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.112.102.229:3306/jxyz_test?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
-    username: root
-    password: root@1234
+    url: jdbc:mysql://127.0.0.1:3306/jxyz?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+    username: jxyz
+    password: jxyz@1234
     hikari:
       connection-timeout: 15000
       auto-commit: true

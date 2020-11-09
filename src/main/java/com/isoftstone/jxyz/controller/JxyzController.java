@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("api")
 @Slf4j
 public class JxyzController {
-	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(JxyzController.class);
 	@Value("${jxyz.default_year}")
 	private String defaultYear;
 
@@ -44,13 +43,13 @@ public class JxyzController {
 				DB.notNull("op_org_name,", jsb.getString("oporgname")),
 				DB.notNull("op_erator_no,", jsb.getString("operatorno")),
 				DB.notNull("op_erator_name,", jsb.getString("operatorname")),
-				DB.notNull("created_date,", Utils.df().format(new Date())), DB.notNull("created_by,", "王小贱"), ")",
+				DB.notNull("created_date,", Utils.df().format(new Date())), DB.notNull("created_by", "王小贱"), ")",
 				DB.valuesQuestions());
 
 		log.info("轨迹数据：结束导入数据");
 
 		JSONObject resJsb = new JSONObject();
-		resJsb.put("code", 200);
+		resJsb.put("code", 0);
 		resJsb.put("msg", "success");
 		resJsb.put("data", "");
 		return new ResponseEntity<JSONObject>(resJsb, HttpStatus.OK);
